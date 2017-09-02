@@ -4,10 +4,6 @@ This is the start of a collection of technical screening questions for React + R
 
 ## Core React
 
-**What is JSX?**
-
-A:
-
 **What are props?**
 
 A:
@@ -24,7 +20,7 @@ A:
 
 A:
 
-**Where is the state kept in a React + Redux application?**
+**What is JSX?**
 
 A:
 
@@ -32,9 +28,9 @@ A:
 
 A:
 
-**Where might be a good lifecycle method to make a remote call to fetch data for a component?**
+**What would be a good lifecycle method to make a remote call to fetch data for a component?**
 
-A:
+A: componentDidMount
 
 **What does it mean for a component to be mounted in React?**
 
@@ -44,11 +40,7 @@ A:
 
 A:
 
-**What are the 3 fundamental principles of Redux?**
-
-A:
-
-**What's the typical flow of data like in a React + Redux app?**
+**What are some recent changes in the React library (e.g. in version 14, 15)?**
 
 A:
 
@@ -149,6 +141,18 @@ A:
 
 A:
 
+**What is ReactDOM?**
+
+A:
+
+**If you need to access the underlying DOM node for a React component, what's the typical way to do this in React?**
+
+A: ReactDOM.findDOMNode(component)
+
+**What is the React context?**
+
+A:
+
 ## Redux and Related Concepts
 
 **What are typical middleware choices for handling asynchronous calls in Redux?**
@@ -157,6 +161,22 @@ A: Redux Thunk, Redux Promise, Redux Saga
 
 
 **What is the point of Redux?**
+
+A:
+
+**Where is the state kept in a React + Redux application?**
+
+A:
+
+**What are the 3 fundamental principles of Redux?**
+
+A:
+
+**What's the typical flow of data like in a React + Redux app?**
+
+A:
+
+**What is mapStateToProps and mapDispatchToProps?**
 
 A:
 
