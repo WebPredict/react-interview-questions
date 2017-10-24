@@ -99,55 +99,55 @@ A: Uses a value attribute to define its text.
 
 **What happens when you call setState?**
 
-A: 
+A: The state property is updated in a React component with the object passed into setState, and this is done asynchronously. It tells React that this component and its children need to be re-rendered, but React may not do this immediately (it may batch these state update requests for better performance).
 
 **What is reconciliation in React?**
 
-A:
+A: It's React's process of re-rendering its tree of UI components.
 
 **What's the difference between an Element and a Component in React?**
 
-A:
+A: Elements are the fundamental building blocks of React, and describe what you want to see on the screen. They are just simple JS objects with props, key, ref, and type properties, whereas Components have a render method and optionally accept inputs.
 
 **What are refs in React and what are they used for?**
 
-A:
+A: Refs are React's "escape hatch" mechanism for a component to reference another component outside of the typical data flow. This could be in order to correctly integrate with third party libraries, change focus on another component in the UI, triggering animations, etc.
 
 **Why does React use SyntheticEvents?**
 
-A:
+A: For consistent, cross-browser event handling (SyntheticEvent is a wrapper around the native browser event object).
 
 **What's the difference between createElement and cloneElement?**
 
-A:
+A: As the names imply, createElement creates a new React Element, and cloneElement clones an existing one (and is faster - useful if you don't actually have to change anything in the original Element).
 
 **What's a higher order component in React?**
 
-A:
+A: It's an advanced technique / pattern in React for reusing component logic.
 
 **Why would you use forceUpdate in a React component?**
 
-A:
+A: In order to force a re-render if there is some condition React is not detecting that requires an update to the UI. Typically this should not be necessary to call.
 
 **What is the point of shouldComponentUpdate() method?**
 
-A:
+A: It's used for performance reasons, for example if the implementor of a component knows for sure that a particular property change does not necessitate a re-render, they could return false from this method and skip the re-render.
 
 **What are PropTypes in React?**
 
-A:
+A: They help indicate to React what data types a React component's properties are and should accept.
 
 **Explain the Virtual DOM concept in React.**
 
-A:
+A: React builds up its own "virtual DOM" which is a lightweight representation of the DOM optimized for React's diffing algorithms and reconciliation process. Virtual DOM changes eventually propagate to the actual DOM at the end of the reconciliation process.
 
 **How would you write an inline style in React?**
 
-A:
+A: <div stype={{ height: 10 }}>
 
 **What is ReactDOM?**
 
-A:
+A: It's a top-level React API to render a React element into the DOM, via the ReactDOM.render method.
 
 **If you need to access the underlying DOM node for a React component, what's the typical way to do this in React?**
 
@@ -155,7 +155,7 @@ A: ReactDOM.findDOMNode(component)
 
 **What is the React context?**
 
-A:
+A: It's an experimental API that allows you to pass data down through a tree of components without having to use props.
 
 ## Redux and Related Concepts
 
@@ -166,27 +166,31 @@ A: Redux Thunk, Redux Promise, Redux Saga
 
 **What is the point of Redux?**
 
-A:
+A: Application state management that is easy to reason about, maintain and manage in an asynchronous web application environment.
 
 **Where is the state kept in a React + Redux application?**
 
-A:
+A: In the store.
 
 **What are the 3 fundamental principles of Redux?**
 
-A:
+A: Immutability of the application state, no side-effects in reducers, ?
 
 **What's the typical flow of data like in a React + Redux app?**
 
-A:
+A: Callback from UI component dispatches an action with a payload, which then is intercepted in a reducer, possibly producing a new application state, which is then propagated down through the tree of components in the application from the Redux store.
 
 **What is mapStateToProps and mapDispatchToProps?**
 
-A:
+A: Functions typically seen in Redux applications that provide functions to Redux on how to map state / dispatch function to a set of props.
 
 **What is Flux?**
 
-A:
+A: Unidrectional application flow paradigm popular a few years back in React; mostly superceded by Redux these days.
+
+**What is React Fiber?**
+
+A: A rewrite under the covers of React to make it as responsive as possible, while maintaining backwards compatibility.
 
 
 ## Popular React Libraries
