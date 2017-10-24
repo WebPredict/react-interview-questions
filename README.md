@@ -143,7 +143,7 @@ A: React builds up its own "virtual DOM" which is a lightweight representation o
 
 **How would you write an inline style in React?**
 
-A: <div stype={{ height: 10 }}>
+A: For example: `<div style={{ height: 10 }}>`
 
 **What is ReactDOM?**
 
