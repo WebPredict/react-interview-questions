@@ -1,6 +1,7 @@
-# Many React + Redux Interview Questions And Answers
+# 75+ React + Redux Interview Questions And Answers, Updated for React 16
 
 This is the start of a collection of technical screening questions for React + Redux skills. Feel free to contribute!
+(And yes, many of these answers are pretty much direct quotes from the official documentation.)
 
 ## Core React
 
@@ -71,7 +72,7 @@ A: You call `e.preventDefault();` on the event e passed into the callback.
 
 **How do you embed inline expressions in JSX?**
 
-A: Wrap them in curly braces like so:
+A: Wrap them in curly braces like so: `<img src={user.avatarUrl}></img>`
 
 **How would you prevent a component from rendering in React?**
 
@@ -157,12 +158,58 @@ A: ReactDOM.findDOMNode(component)
 
 A: It's an experimental API that allows you to pass data down through a tree of components without having to use props.
 
+**What is React Fiber?**
+
+A: A rewrite under the covers of React to make it as responsive as possible, while maintaining backwards compatibility.
+
+**What are some new features in react 16?**
+
+A: fragments, error boundaries, portals, improved server-side rendering and reduced file size.
+
+**What does ReactDOM.hydrate do?**
+
+A: Hydrates a container whose contents were rendered by ReactDOMServer, and warns about differences between client + server side rendering.
+
+**What are some approaches to avoid "callback hell" when making server calls?**
+
+A: Use of generator functions, redux-saga, effects.
+
+**How would you write "Hello World" in React?**
+
+A: `ReactDOM.render(
+	<h1>Hello, world!</h1>,
+	document.getElementById('root')
+   );`
+
+**How does React prevent injection attacks?**
+
+A: React DOM escapes any values embedded in JSX before rendering them to help prevent cross site scripting attacks.
+
+**What is the "class" attribute name when used by a React component?**
+
+A: className
+
+**Can a React component modify its props?**
+
+A: No, or at least it's not supposed to.
+
+**Why is it not a good idea to modify a component's state directly, but rather call setState()?**
+
+A: There are some optimizations around the use of setState, for example multiple calls to setState may be batched / executed more efficiently.
+
+**How do you prevent the default behavior when handling an action from a React component?**
+
+A: You would call e.preventDefault() on the synthetic event passed into a component's callback.
+
+**What is one common way a component can effectively hide itself?**
+
+A: It can return null from its render method.
+
 ## Redux and Related Concepts
 
 **What are typical middleware choices for handling asynchronous calls in Redux?**
 
 A: Redux Thunk, Redux Promise, Redux Saga
-
 
 **What is the point of Redux?**
 
@@ -184,15 +231,65 @@ A: Callback from UI component dispatches an action with a payload, which then is
 
 A: Functions typically seen in Redux applications that provide functions to Redux on how to map state / dispatch function to a set of props.
 
+**What are thunks?**
+
+A: Functions (that return other functions) which are useful for handling asynchronous / delayed dispatch of actions in the context of a Redux application.
+
 **What is Flux?**
 
 A: Unidrectional application flow paradigm popular a few years back in React; mostly superceded by Redux these days.
 
-**What is React Fiber?**
+**What is Mobx?**
 
-A: A rewrite under the covers of React to make it as responsive as possible, while maintaining backwards compatibility.
+A: Simple application state management revolving around the use of observables / reactive programming.
 
+## Other Popular React Libraries / Ecosystem
 
-## Popular React Libraries
+**What is Yarn and how is it useful?**
 
+A: Package manager that guarantees dependencies will be installed in the exact same way on any machine. It caches previously downloaded packages and does most actions concurrently for better performance.
+
+**What is Babel and how is it often used in the context of a React application?**
+
+A: Babel is a JS compiler, and is often used for things like translating JSX into JS, or translating ES6 JS code into ES5 for broader browser support.
+
+**what is GraphQL?**
+
+A: A library that includes a query language + type system for fetching data efficiently (in one request vs multiple requests in a typical RESTful API) for applications from an API.
+
+**What is Flow?**
+
+A: Static type checker for JavaScript, often used in React projects for improved code quality and maintainability.
+
+**what is Enzyme?**
+
+A: A popular JS testing library for React, from the folks at Airbnb.
+
+**What is Material UI?**
+
+A: An open source project of React components that implement Google's Material design.
+
+**What is Storybook?**
+
+A: A development environment for UI components. Allows interactive development of components, component library browsing, etc.
+
+**What does a JS toolchain typically consist of for a complex React application?**
+
+A: a package manager (e.g. Yarn), a bundler (e.g. webpack), and a compiler (e.g. Babel).
+
+**What would you use redux-saga for?**
+
+A: Easier to read asynchronous code handling, avoiding "callback hell" (i.e. deeply nested callbacks).
+
+**What is reselect?**
+
+A: A library that supports memoizing selectors in the context of a React / Redux application. Basically this means higher performing code by avoiding unnecessary recomputation of values that have ultimately not changed.
+
+**What is normalizr?**
+
+A: A library which normalizes nested JSON data according to some schema. The point is to reduce redundant data sent to the client.
+
+**What is Relay?**
+
+A: It's a framework for data fetching functionality using GraphQL, efficiently fetching specified data for a component.
 
