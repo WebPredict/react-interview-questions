@@ -1,6 +1,6 @@
-# 75+ React + Redux Interview Questions And Answers, Updated for React 16
+# 75+ React + Redux Interview Questions And Answers, Updated for React 18+
 
-This is the start of a collection of technical screening questions for React + Redux skills. Feel free to contribute!
+This is a collection of technical screening questions for React + Redux skills. Feel free to contribute!
 (And yes, many of these answers are pretty much direct quotes from the official documentation.)
 
 ## Core React
@@ -27,7 +27,7 @@ A: JavaScript with extensions. Useful for creating React elements with the full 
 
 **What are some lifecycle methods in a React component?**
 
-A: componentDidMount, componentWillMount, componentWillUpdate, componentDidUpdate, shouldComponentUpdate, componentWilReceiveProps.
+A: componentDidMount, componentDidUpdate, shouldComponentUpdate, componentWillUnmount, getDerivedStateFromProps, getSnapshotBeforeUpdate. Note: the older `componentWillMount`, `componentWillReceiveProps`, and `componentWillUpdate` methods are deprecated and should not be used in new code. In modern React, the `useEffect` hook is the primary way to handle side effects in functional components.
 
 **What's the difference between a 'smart' component and a 'dumb' component?**
 
@@ -45,9 +45,9 @@ A: It has a corresponding element created in the DOM and is connected to that.
 
 A: A component that has no internal state of its own, nor any side effects, and thus is often written as a function as opposed to an ES6 class.
 
-**What are some recent changes in the React library (e.g. in version 14, 15)?**
+**What are some major changes in the React library over the years?**
 
-A: Splitting out of ReactDOM into react-dom, introduction of refs, improved warnings + error messages...
+A: Splitting out of ReactDOM into react-dom, introduction of refs, Hooks (16.8), stable Context API (16.3), concurrent rendering and automatic batching (18), and the `use` hook and server components (19).
 
 **What is the render method for?**
 
@@ -148,23 +148,23 @@ A: For example: `<div style={{ height: 10 }}>`
 
 **What is ReactDOM?**
 
-A: It's a top-level React API to render a React element into the DOM, via the ReactDOM.render method.
+A: It's a top-level React API to render a React element into the DOM, via `ReactDOM.createRoot(container).render(element)`. (The older `ReactDOM.render()` method is deprecated as of React 18.)
 
 **If you need to access the underlying DOM node for a React component, what's the typical way to do this in React?**
 
-A: ReactDOM.findDOMNode(component)
+A: Use a ref via `useRef()` (in functional components) or `React.createRef()` (in class components) and attach it to the element. The older `ReactDOM.findDOMNode()` is deprecated.
 
 **What is the React context?**
 
-A: It's an experimental API that allows you to pass data down through a tree of components without having to use props.
+A: It's a stable API that allows you to pass data down through a tree of components without having to use props. Commonly used via the `useContext` hook in functional components.
 
 **What is React Fiber?**
 
 A: A rewrite under the covers of React to make it as responsive as possible, while maintaining backwards compatibility.
 
-**What are some new features in react 16?**
+**What are some notable features introduced in React 16 and beyond?**
 
-A: fragments, error boundaries, portals, improved server-side rendering and reduced file size.
+A: React 16 introduced fragments, error boundaries, portals, and improved server-side rendering. React 16.8 added Hooks. React 18 brought concurrent rendering, automatic batching, `useTransition`, `useDeferredValue`, and `Suspense` for data fetching.
 
 **What does ReactDOM.hydrate do?**
 
@@ -172,14 +172,12 @@ A: Hydrates a container whose contents were rendered by ReactDOMServer, and warn
 
 **What are some approaches to avoid "callback hell" when making server calls?**
 
-A: Use of generator functions, redux-saga, effects.
+A: async/await, Promises, generator functions, redux-saga, or libraries like React Query / TanStack Query for data fetching.
 
 **How would you write "Hello World" in React?**
 
-A: `ReactDOM.render(
-	<h1>Hello, world!</h1>,
-	document.getElementById('root')
-   );`
+A: `const root = ReactDOM.createRoot(document.getElementById('root'));
+   root.render(<h1>Hello, world!</h1>);`
 
 **How does React prevent injection attacks?**
 
@@ -221,7 +219,7 @@ A: In the store.
 
 **What are the 3 fundamental principles of Redux?**
 
-A: Immutability of the application state, no side-effects in reducers, ?
+A: Single source of truth (one store), state is read-only (changes only via actions), and changes are made with pure functions (reducers).
 
 **What's the typical flow of data like in a React + Redux app?**
 
@@ -237,7 +235,7 @@ A: Functions (that return other functions) which are useful for handling asynchr
 
 **What is Flux?**
 
-A: Unidrectional application flow paradigm popular a few years back in React; mostly superceded by Redux these days.
+A: Unidirectional application flow paradigm popular a few years back in React; mostly superseded by Redux and other state management libraries.
 
 **What is Mobx?**
 
@@ -253,7 +251,7 @@ A: Package manager that guarantees dependencies will be installed in the exact s
 
 A: Babel is a JS compiler, and is often used for things like translating JSX into JS, or translating ES6 JS code into ES5 for broader browser support.
 
-**what is GraphQL?**
+**What is GraphQL?**
 
 A: A library that includes a query language + type system for fetching data efficiently (in one request vs multiple requests in a typical RESTful API) for applications from an API.
 
@@ -261,9 +259,9 @@ A: A library that includes a query language + type system for fetching data effi
 
 A: Static type checker for JavaScript, often used in React projects for improved code quality and maintainability.
 
-**what is Enzyme?**
+**What is React Testing Library?**
 
-A: A popular JS testing library for React, from the folks at Airbnb.
+A: The recommended testing library for React, focused on testing components the way users interact with them. It replaced Enzyme (from Airbnb), which is no longer actively maintained.
 
 **What is Material UI?**
 
@@ -275,7 +273,7 @@ A: A development environment for UI components. Allows interactive development o
 
 **What does a JS toolchain typically consist of for a complex React application?**
 
-A: a package manager (e.g. Yarn), a bundler (e.g. webpack), and a compiler (e.g. Babel).
+A: A package manager (e.g. npm or Yarn), a bundler (e.g. Vite or webpack), and a compiler/transpiler (e.g. Babel or SWC). Modern frameworks like Next.js bundle these together.
 
 **What would you use redux-saga for?**
 
